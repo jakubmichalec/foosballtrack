@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'carrierwave', "~> 0.10.0"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.3.3'
