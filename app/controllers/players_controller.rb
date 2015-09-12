@@ -17,7 +17,8 @@ class PlayersController < ApplicationController
       flash[:notice] = "Player has been successfully added"
       redirect_to @player
     else
-
+      flash.now[:alert] = "Player has not been added"
+      render 'new'
     end
   end
 
