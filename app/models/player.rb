@@ -1,6 +1,6 @@
 class Player < ActiveRecord::Base
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates_presence_of :first_name, :last_name
+  validates :nickname, presence: true, uniqueness: { case_sensitive: false }
 
   mount_uploader :avatar, AvatarUploader
 

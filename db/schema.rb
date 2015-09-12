@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912164823) do
+ActiveRecord::Schema.define(version: 20150912171633) do
 
   create_table "players", force: :cascade do |t|
     t.string   "first_name"
@@ -21,5 +21,7 @@ ActiveRecord::Schema.define(version: 20150912164823) do
     t.string   "avatar"
     t.string   "nickname"
   end
+
+  add_index "players", ["nickname"], name: "index_players_on_nickname", unique: true
 
 end
