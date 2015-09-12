@@ -1,6 +1,7 @@
 <h1>New Player</h1>
 
 <%= simple_form_for @player do |f| %>
+  <%= f.error_notification %>
   <%= f.input :nickname %>
   <%= f.input :first_name, label: "First Name" %>
   <%= f.input :last_name, label: "Last Name" %>
