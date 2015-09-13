@@ -17,7 +17,7 @@ gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails',
                             branch: 'master', submodules: true
 gem 'font-awesome-rails', '~>4.3'
-
+gem 'mini_magick'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.3.3'

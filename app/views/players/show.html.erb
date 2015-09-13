@@ -5,6 +5,8 @@
     <div class="avatar">
       <%= image_tag(@player.avatar_url, alt: "#{@player.nickname.downcase}")%>
     </div>
+  <% else %>
+    <%= image_tag(@player.avatar.default_url, size: "150x150") %>
   <% end %>
 
 </div>
