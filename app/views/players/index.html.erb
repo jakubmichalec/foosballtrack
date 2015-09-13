@@ -1,4 +1,5 @@
 <%= link_to "New Player", new_player_path %>
+<%= link_to "New Match", new_match_path %>
 
 <%= @players.each do |player| %>
   <h2><%= link_to player.full_name, player %></h2>

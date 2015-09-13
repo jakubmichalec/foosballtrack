@@ -13,6 +13,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'carrierwave', "~> 0.10.0"
+gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails',
+                            branch: 'master', submodules: true
+gem 'font-awesome-rails', '~>4.3'
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.3.3'
@@ -24,4 +29,5 @@ end
 group :test do
   gem 'capybara', "~> 2.4"
   gem 'factory_girl_rails', "~> 4.5"
+  gem 'database_cleaner', "~> 1.4"
 end

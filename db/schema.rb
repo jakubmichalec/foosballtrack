@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912171633) do
+ActiveRecord::Schema.define(version: 20150912221925) do
+
+  create_table "matches", force: :cascade do |t|
+    t.date     "match_date"
+    t.integer  "home_player_id"
+    t.integer  "away_player_id"
+    t.integer  "home_score"
+    t.integer  "away_score"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "matches", ["away_player_id"], name: "index_matches_on_away_player_id"
+  add_index "matches", ["home_player_id"], name: "index_matches_on_home_player_id"
 
   create_table "players", force: :cascade do |t|
     t.string   "first_name"
