@@ -30,4 +30,5 @@ group :test do
   gem 'capybara', "~> 2.4"
   gem 'factory_girl_rails', "~> 4.5"
   gem 'database_cleaner', "~> 1.4"
+  gem 'shoulda-matchers'
 end
