@@ -18,6 +18,7 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails',
                             branch: 'master', submodules: true
 gem 'font-awesome-rails', '~>4.3'
 gem 'mini_magick'
+gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.3.3'
