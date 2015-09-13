@@ -7,7 +7,8 @@ class Match < ActiveRecord::Base
   validate :home_and_away_player, :future_date, :proper_score, :not_enough_goals
 
   def home_and_away_player
-    errors.add(:base, "Home and Away player can't be the same") unless self.home_player_id != self.away_player_id
+    errors.add(:base, "Home and Away player can't be the same") unless
+      self.home_player_id != self.away_player_id
   end
 
   def future_date
