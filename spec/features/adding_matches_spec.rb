@@ -6,7 +6,7 @@ RSpec.feature 'Users can add matches' do
   let!(:home_player) { create(:player) }
   let!(:away_player) { create(:player) }
 
-  let(:match_date) { Date.new.to_s(:db) }
+  let(:match_date) { Date.today.to_s(:db) }
   let(:home_player_id) { home_player.id }
   let(:away_player_id) { away_player.id }
   let(:away_score) { 10 }
@@ -69,4 +69,12 @@ RSpec.feature 'Users can add matches' do
     end
   end
 
+  describe "#score" do
+    context "when away player wins" do
+      let!(:away_match_win) { match.dup.save!}
+
+      it { expect(home_player.home_score_sum).to eq home_score }
+      it { expect(away_player.away_score_sum). to eq away_score }
+    end
+  end
 end

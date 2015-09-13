@@ -10,4 +10,12 @@ class Player < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def home_score_sum
+    Match.where("home_player_id = ?", self.id).sum(:home_score)
+  end
+
+  def away_score_sum
+    Match.where("away_player_id = ?", self.id).sum(:away_score)
+  end
 end
