@@ -5,6 +5,7 @@ RSpec.feature 'Users can add matches' do
 
   let!(:home_player) { create(:player) }
   let!(:away_player) { create(:player) }
+  let!(:user) { create(:user)}
 
   let(:match_date) { Date.today.to_s(:db) }
   let(:home_player_id) { home_player.id }
@@ -14,35 +15,48 @@ RSpec.feature 'Users can add matches' do
 
   it { expect(match).to be_valid }
 
-  scenario 'with valid attributes' do
-    visit '/'
-    click_link 'New Match'
+  context "not logged in users" do
+    scenario 'cannot see the New Match link' do
+      visit '/'
 
-    fill_in 'Match Date', with: '2015/01/01'
-    select("#{home_player.nickname}", from: 'Home Player' )
-    select(10, from: 'Home Score')
-    select("#{away_player.nickname}", from: 'Away Player' )
-    select(9, from: 'Away Score')
-
-    click_button 'Add Match'
-
-    expect(page).to have_content "Match has been successfully added"
+      expect(page).to_not have_content "New Match"
+    end
   end
 
-  scenario 'with the same players' do
-    visit '/'
-    click_link 'New Match'
+  context 'logged in users can add Match' do
+    before { login(user) }
 
-    fill_in 'Match Date', with: '2015/01/01'
-    select("#{home_player.nickname}", from: 'Home Player' )
-    select(10, from: 'Home Score')
-    select("#{home_player.nickname}", from: 'Away Player' )
-    select(9, from: 'Away Score')
+    scenario 'with valid attributes' do
+      visit '/'
+      click_link 'New Match'
 
-    click_button 'Add Match'
+      fill_in 'Match Date', with: '2015/01/01'
+      select("#{home_player.nickname}", from: 'Home Player' )
+      select(10, from: 'Home Score')
+      select("#{away_player.nickname}", from: 'Away Player' )
+      select(9, from: 'Away Score')
 
-    expect(page).to have_content "Match has not been added"
+      click_button 'Add Match'
+
+      expect(page).to have_content "Match has been successfully added"
+    end
+
+    scenario 'with the same players' do
+      visit '/'
+      click_link 'New Match'
+
+      fill_in 'Match Date', with: '2015/01/01'
+      select("#{home_player.nickname}", from: 'Home Player' )
+      select(10, from: 'Home Score')
+      select("#{home_player.nickname}", from: 'Away Player' )
+      select(9, from: 'Away Score')
+
+      click_button 'Add Match'
+
+      expect(page).to have_content "Match has not been added"
+    end
   end
+
 
   describe "#match_date" do
     context "when match date is not present" do
