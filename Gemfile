@@ -24,11 +24,11 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'database_cleaner', "~> 1.4"
 end
 
 group :test do
   gem 'capybara', "~> 2.4"
   gem 'factory_girl_rails', "~> 4.5"
-  gem 'database_cleaner', "~> 1.4"
   gem 'shoulda-matchers'
 end
