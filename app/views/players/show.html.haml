@@ -1,0 +1,7 @@
+#player
+  %h1= @player.first_name
+  - if @player.avatar.present?
+    .avatar
+      = image_tag(@player.avatar_url, alt: "#{@player.nickname.downcase}")
+  - else
+    = image_tag(@player.avatar.default_url, size: "150x150")

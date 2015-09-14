@@ -1,0 +1,9 @@
+%h1 New Player
+= simple_form_for @player do |f|
+  = f.error_notification
+  = f.input :nickname
+  = f.input :first_name, label: "First Name"
+  = f.input :last_name, label: "Last Name"
+  = f.button :submit, "Add Player"
+  = f.input :avatar, label: "Avatar", as: :file
+  = f.input :avatar_cache, as: :hidden
