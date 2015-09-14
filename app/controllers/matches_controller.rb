@@ -12,7 +12,7 @@ class MatchesController < ApplicationController
       flash[:notice] = "Match has been successfully added"
       redirect_to root_url
     else
-      flash[:now] = "Match has not been added"
+      flash.now[:danger] = "Match has not been added"
       render 'new'
     end
   end

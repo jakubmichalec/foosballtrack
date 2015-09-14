@@ -1,2 +1,21 @@
+#carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+  .carousel-inner{:role => "listbox"}
+    .item.active
+      .carousel-caption
+      = image_tag 'pic1.jpg', class: "img-responsive center-block"
+    .item
+      .carousel-caption
+      = image_tag 'pic2.jpg', class: "img-responsive center-block"
+    .item
+      .carousel-caption
+      = image_tag 'pic3.jpg', class: "img-responsive center-block"
+  %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic", :role => "button"}
+    %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+    %span.sr-only Previous
+  %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic", :role => "button"}
+    %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+    %span.sr-only Next
+
+
 - @players.each do |player|
   %h2= link_to player.full_name, player
