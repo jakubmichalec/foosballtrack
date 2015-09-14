@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
+@import "font-awesome";
 
 .alert-notice {
   @extend .alert-success;
@@ -11,5 +12,5 @@
 }
 
 body {
-  padding-top: 50px;
+  padding-top: 70px;
 }

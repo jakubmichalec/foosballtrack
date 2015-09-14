@@ -1,0 +1,26 @@
+%nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+  .container
+    .navbar-header
+      .navbar-brand Foosball Tracker
+    .navbar-right
+      .btn-group.navbar-btn
+        = link_to root_path, class: 'btn btn-default btn-sm' do
+          %i.fa.fa-home
+          Home
+        - if user_signed_in?
+          = link_to new_player_path, class: 'btn btn-default btn-sm' do
+            %i.fa.fa-pencil.fa-fw
+            New Player
+          = link_to new_match_path, class: 'btn btn-default btn-sm' do
+            %i.fa.fa-pencil.fa-fw
+            New Match
+          = link_to destroy_user_session_path, method: :delete, class: 'btn btn-default btn-sm' do
+            %i.fa.fa-sign-out
+            Sign Out
+        - else
+          = link_to new_user_registration_path, class: 'btn btn-default btn-sm' do
+            %i.fa.fa-user-plus
+            Sign Up
+          = link_to new_user_session_path, class: 'btn btn-default btn-sm' do
+            %i.fa.fa.fa-sign-in
+            Sign In

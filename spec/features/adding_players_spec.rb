@@ -9,7 +9,7 @@ RSpec.feature 'Users can add players' do
     end
   end
 
-  context "loggen in users can add players" do
+  context "logged in users can add players" do
     before { login(user) }
 
     scenario 'with valid attributes' do
