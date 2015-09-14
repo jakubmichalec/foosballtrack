@@ -9,3 +9,7 @@
 .alert-alert {
   @extend .alert-danger;
 }
+
+body {
+  padding-top: 50px;
+}
