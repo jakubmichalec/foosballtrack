@@ -22,21 +22,19 @@
   %table.table.table-striped.table-hover
     %tr
       %th Nickname
-      %th First Name
-      %th Last Name
       %th Number of Matches
       %th Wins
       %th Loses
       %th Goals
       %th Lost Goals
+      %th Rating
 
     - @players.each do |player|
       %tr
         %td= link_to player.nickname, player
-        %td= player.first_name
-        %td= player.last_name
         %td= player.number_of_matches
         %td= player.wins
         %td= player.lose
         %td= player.goals
         %td= player.lost_goals
+
