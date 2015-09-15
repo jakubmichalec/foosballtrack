@@ -6,7 +6,7 @@ RSpec.feature 'Users can view Players page' do
     login(user)
     visit '/'
 
-    click_link "#{player.full_name}"
+    click_link "#{player.nickname}"
 
     expect(page.current_url).to eq player_url(player)
   end
