@@ -7,8 +7,29 @@ class Player < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  default_scope -> { order(rating: :desc) }
+
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def rank_measure
+   # ((wins) / (wins + lose)) * number_of_matches # basic
+   # algorith base on Lower bound of Wilson
+    if wins > 0 or lose > 0
+      self.rating = ((wins + 1.92) / (wins + lose) - 1.96 * Math.sqrt((wins * lose) / (wins + lose) + 0.96) /
+          (wins + lose)) / (1 + 3.84 / (wins + lose))
+    else
+        0
+    end
+  end
+
+  def rating
+   self.rank_measure
+  end
+
+  def update_player_ranking
+    self.update_attribute(:rating, rank_measure)
   end
 
   def home_player_match
@@ -28,7 +49,8 @@ class Player < ActiveRecord::Base
   end
 
   def number_of_matches
-    Match.where("away_player_id = ? OR home_player_id = ?", self.id, self.id).count
+    Match.where("away_player_id = ? OR home_player_id = ?",
+      self.id, self.id).count
   end
 
   def winner
@@ -57,4 +79,5 @@ class Player < ActiveRecord::Base
   def lost_goals
     home_player_match.sum(:away_score) + away_player_match.sum(:home_score)
   end
+
 end

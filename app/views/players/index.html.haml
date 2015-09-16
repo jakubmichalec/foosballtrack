@@ -27,7 +27,7 @@
       %th Loses
       %th Goals
       %th Lost Goals
-      %th Rating
+      %th Ranking
 
     - @players.each do |player|
       %tr
@@ -37,4 +37,6 @@
         %td= player.lose
         %td= player.goals
         %td= player.lost_goals
+        %td= "#{number_with_precision(player.rating, precision: 2)}"
+
 

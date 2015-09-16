@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913212330) do
+ActiveRecord::Schema.define(version: 20150915235150) do
 
   create_table "matches", force: :cascade do |t|
     t.date     "match_date"
@@ -29,10 +29,11 @@ ActiveRecord::Schema.define(version: 20150913212330) do
   create_table "players", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "avatar"
     t.string   "nickname"
+    t.float    "rating",     default: 0.0
   end
 
   add_index "players", ["nickname"], name: "index_players_on_nickname", unique: true

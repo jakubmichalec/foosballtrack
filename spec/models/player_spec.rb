@@ -51,6 +51,7 @@ RSpec.describe Player, type: :model do
     context 'after one played match' do
       it { expect(home_player.number_of_matches).to eq 1 }
       it { expect(away_player.number_of_matches).to eq 1 }
+      it { expect(home_player.rating).to_not eq 0.0 }
     end
 
     context 'when home player play one more game' do

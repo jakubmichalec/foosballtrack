@@ -1,0 +1,54 @@
+%strong Player Score Card
+%br
+  .table-responsive
+    %table.table.table-condensed.table-responsive.table-user-information
+      %tbody
+        %tr
+          %td
+            %strong
+              %span.fa.fa-male.fa-fw.text-primary
+              First Name
+          %td.text-primary
+            = player.first_name
+        %tr
+          %td
+            %strong
+              %span.fa.fa-male.fa-fw.text-primary
+              Last Name
+          %td.text-primary
+            = player.last_name
+        %tr
+          %td
+            %strong
+              %span.fa.fa-futbol-o.fa-fw.text-primary
+              Number of Matches
+          %td.text-primary
+            = player.number_of_matches
+        %tr
+          %td
+            %strong
+              %span.fa.fa-trophy.fa-fw.text-primary
+              Wins
+          %td.text-primary
+            = player.wins
+        %tr
+          %td
+            %strong
+              %span.fa.fa-meh-o.fa-fw.text-primary
+              Loses
+          %td.text-primary
+            = player.lose
+        %tr
+          %td
+            %strong
+              %span.fa.fa-hand-o-up.fa-fw.text-primary
+              Goals
+          %td.text-primary
+            = player.goals
+        %tr
+          %td
+            %strong
+              %span.fa.fa-hand-o-down.fa-fw.text-primary
+              Lost Goals
+          %td.text-primary
+            = player.goals
